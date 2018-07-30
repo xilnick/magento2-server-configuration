@@ -2,10 +2,10 @@
 
 if [ $1 ] && [ $2 ];
     then
-        cd /var/www/html/$1/webroot
+        cd /var/www/$1
 
         php bin/magento sampledata:deploy
-        export COMPOSER_HOME=/var/www/html/$1/composer
+        export COMPOSER_HOME=/var/www/$1/var/composer_home
         composer update
         php bin/magento setup:upgrade
 

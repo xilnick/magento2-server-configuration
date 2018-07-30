@@ -8,7 +8,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         --db-host=$3 --db-name=$4 --db-user=$5 --db-password=$6 \
         --admin-firstname=Developer --admin-lastname=Developer --admin-email=$7 \
         --admin-user=$8 --admin-password=$9 --language=${10} \
-        --currency=${11} --timezone=America/Chicago --use-rewrites=1
+        --currency=${11} --timezone=Europe/London --use-rewrites=1
 
         php bin/magento deploy:mode:set developer
         php bin/magento cache:disable
@@ -20,7 +20,7 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] 
         chmod u+x bin/magento
         chown -R :www-data .
 
-        service php7.0-fpm restart
+        service php7.1-fpm restart
     else
         echo "";
         echo "1st parameter is magento domain";
