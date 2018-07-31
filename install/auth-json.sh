@@ -2,8 +2,8 @@
 
 if [ $1 ] && [ $2 ] && [ $3 ];
     then
-        rm /var/www/html/$1/composer/auth.json
-        mkdir /var/www/html/$1/composer
+        rm /var/www/$1/composer_home/auth.json
+        mkdir /var/www/$1/composer_home
         echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\""$2"\", \"password\":\""$3"\"}}}" >> /var/www/$1/composer_home/auth.json
     else
         echo ""
