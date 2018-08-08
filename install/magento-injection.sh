@@ -3,7 +3,7 @@
 if [ $1 ] && [ $2 ];
     then
         export COMPOSER_HOME=/var/www/$1/composer_home
-        cd /var/www/html/$1/webroot
+        cd /var/www/$1
         composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition . $2
     else
         echo "";

@@ -21,7 +21,6 @@ if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ];
         chmod u+x bin/magento
 
         SITE=/etc/nginx/sites-available/$2
-        /nginx-site > $SITE
 
         sed "s/&DOMAIN&/$2/g" "../config/nginx-site" > $SITE
         ln -s $SITE /etc/nginx/sites-enabled/

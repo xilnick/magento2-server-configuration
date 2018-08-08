@@ -2,7 +2,7 @@
 
 if [ $1 ] && [ $2 ] && [ $3 ] && [ $4 ] && [ $5 ] && [ $6 ] && [ $7 ] && [ $8 ] && [ $9 ] && [ ${10} ] && [ ${11} ];
     then
-        cd /var/www/html/$1/webroot
+        cd /var/www/$1
 
         php bin/magento setup:install --base-url=$2 \
         --db-host=$3 --db-name=$4 --db-user=$5 --db-password=$6 \
