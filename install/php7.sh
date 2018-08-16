@@ -3,7 +3,7 @@
 apt-get install \
     php-fpm \
     php-mysql \
-    php-mcrypt \
+    php7.1-mcrypt \
     php-curl \
     php-cli \
     php-gd \
