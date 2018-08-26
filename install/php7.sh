@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-apt-get install \
+apt-get \
+    --yes -yq install \
     php-fpm \
     php-mysql \
     php7.1-mcrypt \
@@ -17,7 +18,6 @@ apt-get install \
     php-mbstring \
     php-zip \
     php7.1-bcmath \
-    php-imagick \
-    --yes
+    php-imagick
 
 service php7.1-fpm restart

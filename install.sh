@@ -21,7 +21,6 @@
 
 DOMAIN=$(awk -F "=" '/domain/ {print $2}' install.ini)
 BASE_URL=$(awk -F "=" '/base_url/ {print $2}' install.ini)
-MAGENTO_RELEASE=$(awk -F "=" '/magento_release/ {print $2}' install.ini)
 DATABASE_HOST=$(awk -F "=" '/database_host/ {print $2}' install.ini)
 DATABASE_NAME=$(awk -F "=" '/database_name/ {print $2}' install.ini)
 DATABASE_USER=$(awk -F "=" '/database_user/ {print $2}' install.ini)
@@ -50,10 +49,12 @@ MAGENTO_WEBSERVER_CONFIG=$(awk -F "=" '/magento_webserver_config/ {print $2}' in
 MAGENTO_DEPENDENCY_INJECTION=$(awk -F "=" '/magento_dependency_injection/ {print $2}' install.ini)
 MAGENTO_INSTALLATION=$(awk -F "=" '/magento_installation/ {print $2}' install.ini)
 MAGENTO_SAMPLE_DATA_INSTALLATION=$(awk -F "=" '/magento_sample_data_installation/ {print $2}' install.ini)
+REPOSITORY_URL=$(awk -F "=" '/repository_url/ {print $2}' install.ini)
+PROJECT_NAME=$(awk -F "=" '/project_name/ {print $2}' install.ini)
 
 WAIT=$(awk -F "=" '/wait/ {print $2}' install.ini)
 
-apt-get update
+bash install/prepare.sh
 
 if [ $INSTALL_BASICS == "yes" ];
     then
@@ -156,7 +157,7 @@ if [ $MAGENTO_DEPENDENCY_INJECTION == "yes" ];
         echo ""
         echo "INSTALLATION: MAGENTO 2 COMPOSER PROJECT"
         sleep $WAIT
-        bash install/magento-injection.sh $DOMAIN $MAGENTO_RELEASE
+        bash install/magento-injection.sh $DOMAIN $REPOSITORY_URL $PROJECT_NAME
 fi;
 
 if [ $MAGENTO_INSTALLATION == "yes" ];
